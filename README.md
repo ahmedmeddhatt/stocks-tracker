@@ -1,4 +1,4 @@
-📊 # 📊 Stock Portfolio Tracker – Backend (Node.js + TypeScript)
+📊 Stock Portfolio Tracker – Backend (Node.js + TypeScript)
 
 A fully-featured backend system for managing stock positions, transactions, analytics, and daily performance snapshots.
 
