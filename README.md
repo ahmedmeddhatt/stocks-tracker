@@ -366,3 +366,52 @@ WebSocket live portfolio updates
 Monthly summary aggregation
 
 AI-powered risk analysis
+
+%% =================================================
+%% Full System Sequence Diagram – Stock Portfolio Tracker
+%% File: architecture/sequence-diagram.mmd
+%% =================================================
+
+sequenceDiagram
+    %% ===========================
+    %%  AUTHENTICATION FLOW
+    %% ===========================
+
+    participant User
+    participant Backend
+    participant AuthService
+    participant MongoDB
+
+    Note over User,Backend: USER REGISTRATION
+    User->>Backend: POST /api/auth/register {name, email, password}
+    Backend->>AuthService: registerUser()
+    AuthService->>MongoDB: Insert new User
+    MongoDB-->>AuthService: User created
+    AuthService-->>Backend: Success
+    Backend-->>User: 201 Created
+
+    Note over User,Backend: USER LOGIN
+    User->>Backend: POST /api/auth/login {email, password}
+    Backend->>AuthService: validateCredentials()
+    AuthService->>MongoDB: Find user by email
+    MongoDB-->>AuthService: User found
+    AuthService-->>Backend: Return JWT token
+    Backend-->>User: Login success (JWT)
+
+    %% ===========================
+    %%  POSITION CREATION FLOW
+    %% ===========================
+
+    Note over User,Backend: CREATE A POSITION
+    User->>Backend: POST /api/positions {companyName, stockPrice, quantity}
+    Backend->>Backend: createPosition()
+    Backend->>MongoDB: Insert Position
+    MongoDB-->>Backend: Position created
+    Backend-->>User: 201 Created
+
+    %% ===========================
+    %%  CREATE TRANSACTION + RECOMPUTE POSITION
+    %% ===========================
+
+    Note over User,Backend: CREATE BUY/SELL TRANSACTION
+    User->>Backend:
