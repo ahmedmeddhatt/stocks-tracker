@@ -1,62 +1,50 @@
-📊 Stock Portfolio Tracker – Backend (Node.js + TypeScript)
+📊 # 📊 Stock Portfolio Tracker – Backend (Node.js + TypeScript)
 
 A fully-featured backend system for managing stock positions, transactions, analytics, and daily performance snapshots.
-This project helps users track:
 
-Their stock positions
+This backend helps users track:
 
-Historical performance over time
+- Stock positions
+- Historical performance over time
+- Investment metrics (avg buy price, P/L, % gain/loss)
+- Daily portfolio snapshots
+- Company-level analytics
+- Transaction-based recalculation
+- Authentication + protected routes
 
-Calculated metrics (investment, average buy price, P/L, % gain/loss)
+---
 
-Daily automatic snapshots
+## 🚀 Features
 
-Company analytics
+### ✅ Authentication
+- User registration
+- User login
+- JWT-based authorization
 
-Transaction-based recalculation
+### ✅ Positions
+- Add / update / delete stock positions
+- Auto-recalculate from transactions
+- Real-time metrics updates
 
-Authentication + authorization
+### ✅ Transactions
+- Add buy/sell transactions
+- Automatic position recalculation
 
-🚀 Features
-✅ Authentication
+### ✅ Analytics
+- Portfolio summary
+- Per-company analytics
+- 90-day snapshot history
 
-User registration
+### ✅ Daily Snapshots
+- Cron job (23:59 UTC)
+- Stores daily totals
+- Powers charts & trend analysis
 
-User login
+---
 
-JWT-based protected routes
+## 📁 Project Structure
 
-✅ Positions
-
-Add / update / delete stock positions
-
-Automatic recalculation from transactions
-
-Real-time metrics updates
-
-✅ Transactions
-
-Add buy/sell transactions
-
-Auto-recalculates related position
-
-✅ Analytics
-
-Full portfolio summary
-
-Per-company analytics
-
-Historical snapshots (90-day history)
-
-✅ Daily Snapshots
-
-Cron job at 23:59 UTC
-
-Stores daily totals per user
-
-Enables charting + trends
-
-📁 Project Structure
+```bash
 backend/
 ├── src/
 │   ├── config/
