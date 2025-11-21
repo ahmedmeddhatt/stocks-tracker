@@ -8,7 +8,11 @@ import authRouter from "./routes/auth";
 import logger from "./utils/logger";
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: "http://localhost:4000",
+  credentials: true,
+}));
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRouter);
